@@ -7,7 +7,8 @@ class MemeGenerator extends React.Component {
         this.state = {
             topText: '',
             bottomText: '',
-            randomImage: 'http://i.imgflip.com/1bij.jpg'
+            randomImage: 'http://i.imgflip.com/1bij.jpg',
+            allMemeImages: []
         }
     }
 
@@ -27,15 +28,9 @@ class MemeGenerator extends React.Component {
             })
     }
 
-    handleTopTextChange = (event) =>{
+    handleChange = (event) =>{
         this.setState({
-            topText: event.target.value
-        })
-    }
-
-    handleBottomTextChange = (event) => {
-        this.setState({
-            bottomText: event.target.value
+            [event.target.name]:event.target.value
         })
     }
 
@@ -45,26 +40,30 @@ class MemeGenerator extends React.Component {
 
     render(){
         return(
-            <div className='meme'>
+            <div>
                 <form className='meme-form'>
                     <input
+                        name='topText'
                         type='text' 
                         placeholder='top text'
                         value={this.state.topText}
-                        onChange={this.handleTopTextChange}
+                        onChange={this.handleChange}
                     />
                     <input
+                        name='bottomText'
                         type='text'
                         placeholder='bottom text'
                         value={this.state.bottomText}
-                        onChange={this.handleBottomTextChange}
+                        onChange={this.handleChange}
                     />
                     <button onClick={this.generateMeme}>Generate</button>
                 </form>
 
-                <img src={this.state.randomImage} alt="not found"/>
-                <p className='top-text'>{this.state.topText}</p>
-                <p className='bottom-text'>{this.state.bottomText}</p>
+                <div className='meme'>
+                    <img src={this.state.randomImage} alt="not found"/>
+                    <h2 className='top'>{this.state.topText}</h2>
+                    <h2 className='bottom'>{this.state.bottomText}</h2>
+                </div>
             </div>
         )
     }

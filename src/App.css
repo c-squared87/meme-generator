@@ -13,6 +13,7 @@ header p{
 }
 
 .meme {
+  position: relative;
   border: 4px solid lightgreen;
 }
 
@@ -21,6 +22,19 @@ header p{
   height: auto;
 }
 
-.meme p{
-  color:red;
+.meme h2{
+  color:white;
+}
+
+.meme .top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+.meme .bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
