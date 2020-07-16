@@ -10,6 +10,7 @@ class MemeGenerator extends React.Component {
             randomImage: 'http://i.imgflip.com/1bij.jpg',
             allMemeImages: []
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount(){
@@ -34,6 +35,22 @@ class MemeGenerator extends React.Component {
         })
     }
 
+    handleSubmit(event){
+        event.preventDefault()
+        const randNum = Math.floor(Math.random() * 15)
+        // console.log(this.state.allMemeImages[randNum].url)
+        this.setState({
+            randomImage: this.state.allMemeImages[randNum].url
+        })
+        
+        /**
+         * rand num
+         * get meme
+         * image prop in state to url
+         * 
+         */
+    }
+
     generateMeme(){
         console.log("fuckin meme time"); 
     }
@@ -41,7 +58,7 @@ class MemeGenerator extends React.Component {
     render(){
         return(
             <div>
-                <form className='meme-form'>
+                <form className='meme-form' onSubmit={this.handleSubmit}>
                     <input
                         name='topText'
                         type='text' 
