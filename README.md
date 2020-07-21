@@ -1,3 +1,9 @@
+## OVERVIEW
+
+This is a simple meme generator project that I built to practice calling an API to pull down an image, as well as using React state to update form components. Not all of the images match-up with the text boxes, but the underlying components and GET calls are functional to my satisfaction.
+
+_____________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
